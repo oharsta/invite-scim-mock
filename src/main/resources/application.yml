@@ -1,0 +1,23 @@
+logging:
+  level:
+    org.springframework: INFO
+    org.springframework.security: INFO
+
+server:
+  port: 8091
+
+inviter:
+  user: inviter
+  password: secret
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info"
+  endpoint:
+    info:
+      enabled: true
+  info:
+    git:
+      mode: full
