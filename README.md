@@ -1,5 +1,5 @@
 # invite-scim-mock
-[![Build Status](https://github.com/SURFnet/invite-scim-mock/actions/workflows/maven.yml/badge.svg)](https://github.com/SURFnet/invite-scim-mock/actions/workflows/maven.yml/badge.svg)
+[![Build Status](https://github.com/oharsta/invite-scim-mock/actions/workflows/maven.yml/badge.svg)](https://github.com/SURFnet/oharsta/actions/workflows/maven.yml/badge.svg)
 
 SCIM Mock implementation
 
