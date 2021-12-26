@@ -96,7 +96,31 @@ class SCIMControllerTest extends AbstractTest {
                 .delete("/scim/v1/groups/{id}")
                 .then()
                 .statusCode(201);
+    }
 
+    @Test
+    void deleteGroupUnauthorized() {
+        Map<String, Object> body = this.body();
+        given()
+                .when()
+                .accept(ContentType.JSON)
+                .pathParam("id", body.get("id"))
+                .delete("/scim/v1/groups/{id}")
+                .then()
+                .statusCode(401);
+    }
+
+    @Test
+    void deleteGroupWrongAuthorization() {
+        Map<String, Object> body = this.body();
+        given()
+                .when()
+                .auth().basic("inviter", "nope")
+                .accept(ContentType.JSON)
+                .pathParam("id", body.get("id"))
+                .delete("/scim/v1/groups/{id}")
+                .then()
+                .statusCode(401);
     }
 
     private Map<String, Object> body() {
