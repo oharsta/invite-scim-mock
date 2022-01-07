@@ -122,24 +122,24 @@
             </plugin>
         </plugins>
         <extensions>
-    <extension>
-        <groupId>org.apache.maven.wagon</groupId>
-        <artifactId>wagon-webdav-jackrabbit</artifactId>
-        <version>3.4.3</version>
-    </extension>
-</extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-webdav-jackrabbit</artifactId>
+                <version>3.4.3</version>
+            </extension>
+        </extensions>
 
     </build>
     <distributionManagement>
-           <repository>
-               <id>openconext-releases</id>
-               <name>OpenConext public releases repository</name>
-               <url>dav:https://build.openconext.org/repository/public/releases</url>
-           </repository>
-           <snapshotRepository>
-               <id>openconext-snapshots</id>
-               <name>OpenConext public snapshot repository</name>
-               <url>dav:https://build.openconext.org/repository/public/snapshots</url>
-           </snapshotRepository>
-       </distributionManagement>
+        <repository>
+            <id>openconext-releases</id>
+            <name>OpenConext public releases repository</name>
+            <url>dav:https://build.openconext.org/repository/public/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>openconext-snapshots</id>
+            <name>OpenConext public snapshot repository</name>
+            <url>dav:https://build.openconext.org/repository/public/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
