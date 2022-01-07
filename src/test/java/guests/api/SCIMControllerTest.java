@@ -10,21 +10,21 @@ import java.util.Map;
 import java.util.UUID;
 
 import static io.restassured.RestAssured.given;
-
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.notNullValue;
 class SCIMControllerTest extends AbstractTest {
 
     @Test
     void createUser() {
-        Map<String, Object> body = this.body();
         given()
                 .when()
                 .auth().basic("inviter", "secret")
                 .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
-                .body(body)
+                .body(this.body())
                 .post("/scim/v1/users")
                 .then()
-                .body("id", IsEqual.equalTo(body.get("id")));
+                .body("id", is(notNullValue()));
     }
 
     @Test
@@ -57,16 +57,15 @@ class SCIMControllerTest extends AbstractTest {
 
     @Test
     void createGroup() {
-        Map<String, Object> body = this.body();
         given()
                 .when()
                 .auth().basic("inviter", "secret")
                 .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
-                .body(body)
+                .body(this.body())
                 .post("/scim/v1/groups")
                 .then()
-                .body("id", IsEqual.equalTo(body.get("id")));
+                .body("id", is(notNullValue()));
 
     }
 

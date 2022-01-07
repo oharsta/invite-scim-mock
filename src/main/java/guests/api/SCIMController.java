@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.Map;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/scim/v1", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -20,7 +21,7 @@ public class SCIMController {
     @PostMapping("/users")
     public ResponseEntity<Map<String, String>> createUser(@RequestBody Map<String, Object> user) {
         LOG.info("/scim/v1/users POST " + user);
-        return ResponseEntity.ok(Collections.singletonMap("id", (String) user.get("id")));
+        return ResponseEntity.ok(Collections.singletonMap("id", UUID.randomUUID().toString()));
     }
 
     @PatchMapping("/users/{id}")
@@ -38,7 +39,7 @@ public class SCIMController {
     @PostMapping("/groups")
     public ResponseEntity<Map<String, String>> createGroup(@RequestBody Map<String, Object> group) {
         LOG.info("/scim/v1/groups POST " + group);
-        return ResponseEntity.ok(Collections.singletonMap("id", (String) group.get("id")));
+        return ResponseEntity.ok(Collections.singletonMap("id", UUID.randomUUID().toString()));
     }
 
     @PatchMapping("/groups/{id}")
