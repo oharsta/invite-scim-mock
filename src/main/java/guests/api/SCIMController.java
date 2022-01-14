@@ -26,7 +26,7 @@ public class SCIMController {
 
     @PatchMapping("/users/{id}")
     public ResponseEntity<Map<String, String>> updateUser(@PathVariable("id") String id, @RequestBody Map<String, Object> user) {
-        LOG.info("/scim/v1/users PATCH " + user);
+        LOG.info("/scim/v1/users/" + id + " PATCH " + user);
         return ResponseEntity.ok(Collections.singletonMap("id", id));
     }
 
@@ -44,7 +44,7 @@ public class SCIMController {
 
     @PatchMapping("/groups/{id}")
     public ResponseEntity<Map<String, String>> updateGroup(@PathVariable("id") String id, @RequestBody Map<String, Object> group) {
-        LOG.info("/scim/v1/groups PATCH " + group);
+        LOG.info("/scim/v1/groups/" + id + " PATCH " + group);
         return ResponseEntity.ok(Collections.singletonMap("id", id));
     }
 
