@@ -32,7 +32,7 @@ public class SCIMController {
 
     @DeleteMapping("/users/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable("id") String id) {
-        LOG.info("/scim/v1/users DELETE " + id);
+        LOG.info("/scim/v1/users/" + id + " DELETE");
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
@@ -50,7 +50,7 @@ public class SCIMController {
 
     @DeleteMapping("/groups/{id}")
     public ResponseEntity<Void> deleteGroup(@PathVariable("id") String id) {
-        LOG.info("/scim/v1/groups DELETE " + id);
+        LOG.info("/scim/v1/groups/" + id + " DELETE");
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }
