@@ -43,8 +43,14 @@ public class SCIMController {
     }
 
     @PatchMapping("/groups/{id}")
-    public ResponseEntity<Map<String, String>> updateGroup(@PathVariable("id") String id, @RequestBody Map<String, Object> group) {
+    public ResponseEntity<Map<String, String>> patchGroup(@PathVariable("id") String id, @RequestBody Map<String, Object> group) {
         LOG.info("/scim/v1/groups/" + id + " PATCH " + group);
+        return ResponseEntity.ok(Collections.singletonMap("id", id));
+    }
+
+    @PutMapping("/groups/{id}")
+    public ResponseEntity<Map<String, String>> updateGroup(@PathVariable("id") String id, @RequestBody Map<String, Object> group) {
+        LOG.info("/scim/v1/groups/" + id + " PUT " + group);
         return ResponseEntity.ok(Collections.singletonMap("id", id));
     }
 

@@ -71,7 +71,7 @@ class SCIMControllerTest extends AbstractTest {
     }
 
     @Test
-    void updateGroup() {
+    void patchGroup() {
         Map<String, Object> body = this.body();
         given()
                 .when()
@@ -81,6 +81,21 @@ class SCIMControllerTest extends AbstractTest {
                 .body(body)
                 .pathParam("id", body.get("id"))
                 .patch("/scim/v1/groups/{id}")
+                .then()
+                .body("id", IsEqual.equalTo(body.get("id")));
+    }
+
+    @Test
+    void updateGroup() {
+        Map<String, Object> body = this.body();
+        given()
+                .when()
+                .auth().basic("inviter", "secret")
+                .accept(ContentType.JSON)
+                .contentType(ContentType.JSON)
+                .body(body)
+                .pathParam("id", body.get("id"))
+                .put("/scim/v1/groups/{id}")
                 .then()
                 .body("id", IsEqual.equalTo(body.get("id")));
     }
