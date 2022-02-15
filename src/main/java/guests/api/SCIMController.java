@@ -24,9 +24,9 @@ public class SCIMController {
         return ResponseEntity.ok(Collections.singletonMap("id", UUID.randomUUID().toString()));
     }
 
-    @PatchMapping("/users/{id}")
+    @PutMapping("/users/{id}")
     public ResponseEntity<Map<String, String>> updateUser(@PathVariable("id") String id, @RequestBody Map<String, Object> user) {
-        LOG.info("/scim/v1/users/" + id + " PATCH " + user);
+        LOG.info("/scim/v1/users/" + id + " PUT " + user);
         return ResponseEntity.ok(Collections.singletonMap("id", id));
     }
 

@@ -38,7 +38,7 @@ class SCIMControllerTest extends AbstractTest {
                 .contentType(ContentType.JSON)
                 .body(body)
                 .pathParam("id", body.get("id"))
-                .patch("/scim/v1/users/{id}")
+                .put("/scim/v1/users/{id}")
                 .then()
                 .body("id", IsEqual.equalTo(body.get("id")));
     }
